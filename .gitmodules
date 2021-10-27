@@ -1,0 +1,6 @@
+[submodule "deps/kalman_glm"]
+	path = deps/kalman_glm
+	url = https://github.com/xaedes/kalman_glm.git
+[submodule "deps/glm_mat_1"]
+	path = deps/glm_mat_1
+	url = https://github.com/xaedes/glm_mat_1.git
