@@ -1,15 +1,15 @@
 #pragma once
 
 #include "im_param/im_param.h"
-#include "transform_filter_glm/transform_filter_independent_kalman_rpy.h"
+#include "transform_filter_glm/filter_independent_kalman_rpy.h"
 
 namespace im_param {
 
     template <class backend_type>
     backend_type& parameter(
         backend_type& backend,
-        ::transform_filter_glm::TransformFilterIndependentKalmanRpy::Params& params, 
-        const TypeHolder<::transform_filter_glm::TransformFilterIndependentKalmanRpy>&)
+        ::transform_filter_glm::FilterIndependentKalmanRpy::Params& params, 
+        const TypeHolder<::transform_filter_glm::FilterIndependentKalmanRpy>&)
     {
         parameter(backend, "transformation",   params.transformation);
         parameter(backend, "enable_transpose", params.enable_transpose);

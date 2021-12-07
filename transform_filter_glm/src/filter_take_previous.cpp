@@ -1,16 +1,16 @@
-#include "transform_filter_glm/transform_filter_take_previous.h"
+#include "transform_filter_glm/filter_take_previous.h"
 
 namespace transform_filter_glm {
     
-    TransformFilterTakePrevious::~TransformFilterTakePrevious()
+    FilterTakePrevious::~FilterTakePrevious()
     {}
 
-    void TransformFilterTakePrevious::parameterUpdate()
+    void FilterTakePrevious::parameterUpdate()
     {
 
     }
     
-    void TransformFilterTakePrevious::filter_implementation()
+    void FilterTakePrevious::filter_implementation()
     {
         // use transforms preceeding the points in time
         uint32_t observation_idx = 0;

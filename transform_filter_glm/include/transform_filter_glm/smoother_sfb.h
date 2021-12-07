@@ -1,15 +1,21 @@
 #pragma once
 
 #include <vector>
-#include "transform_filter_glm/abstract_transform_filter.h"
+#include "transform_filter_glm/filter.h"
 
 namespace transform_filter_glm {
 
+    /**
+     * @brief       smoother, simple forward backward
+     *
+     * @tparam     SmoothingValueType   { description }
+     * @tparam     TransformFilterType  { description }
+     */
     template<
         class SmoothingValueType,
         class TransformFilterType
     >
-    struct AbstractSimpleTransformForwardBackwardSmoother : public AbstractTransformFilter
+    struct SmootherSfb : public Filter
     {
         using transform_filter_type = TransformFilterType;
         using smoothing_value_type = SmoothingValueType;
@@ -20,7 +26,7 @@ namespace transform_filter_glm {
         virtual void parameterUpdate();
         
 
-        virtual ~AbstractSimpleTransformForwardBackwardSmoother();
+        virtual ~SmootherSfb();
 
         std::vector<StampedTransform> m_reversed_observations;
         std::vector<double> m_reversed_timestamps;
@@ -37,7 +43,7 @@ namespace transform_filter_glm {
         std::vector<smoothing_value_type> m_smoothed;
 
 
-    protected:
+        protected:
         virtual void filter_implementation() override;
 
         virtual void compute_weights();
@@ -57,4 +63,4 @@ namespace transform_filter_glm {
 
 } // namespace transform_filter_glm
 
-#include "transform_filter_glm/abstract_simple_transform_forward_backward_smoother.impl.h"
+#include "transform_filter_glm/smoother_sfb.impl.h"

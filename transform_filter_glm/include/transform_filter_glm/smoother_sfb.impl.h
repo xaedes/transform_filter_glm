@@ -1,13 +1,13 @@
 #pragma once
 
-#include "transform_filter_glm/abstract_simple_transform_forward_backward_smoother.h"
+#include "transform_filter_glm/smoother_sfb.h"
 
 namespace transform_filter_glm {
 
     #define TEMPLATE_DEF template<class SmoothingValueType, class TransformFilterType>
-    #define CLASS_DECL AbstractSimpleTransformForwardBackwardSmoother<SmoothingValueType, TransformFilterType>
+    #define CLASS_DECL SmootherSfb<SmoothingValueType, TransformFilterType>
 
-    TEMPLATE_DEF CLASS_DECL::~AbstractSimpleTransformForwardBackwardSmoother()
+    TEMPLATE_DEF CLASS_DECL::~SmootherSfb()
     {}
 
     TEMPLATE_DEF void CLASS_DECL::parameterUpdate()

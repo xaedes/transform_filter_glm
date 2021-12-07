@@ -9,11 +9,10 @@ add_library(
     ${PROJECT_NAME} 
     STATIC
     
-    src/abstract_transform_filter.cpp
-    src/abstract_transform_filter_observe_predict.cpp
-    src/transform_filter_take_previous.cpp
-    src/transform_filter_independent_kalman_rpy.cpp
-    src/simple_transform_forward_backward_smoother_independent_kalman_rpy.cpp
+    src/filter.cpp
+    src/filter_rpy_independent_kalman.cpp
+    src/filter_take_previous.cpp
+    src/smoother_rpy_sfb_independent_kalman.cpp
 )
 
 target_include_directories(

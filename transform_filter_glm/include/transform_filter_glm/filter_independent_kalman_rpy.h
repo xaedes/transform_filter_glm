@@ -2,13 +2,13 @@
 
 #include <vector>
 #include "kalman_glm/independent_kalman_xyz_rpy.h"
-#include "transform_filter_glm/abstract_transform_filter_observe_predict.h"
+#include "transform_filter_glm/filter.h"
 
 namespace transform_filter_glm {
 
-    struct TransformFilterIndependentKalmanRpy : public AbstractTransformFilterObservePredict
+    struct FilterIndependentKalmanRpy : public FilterObservePredict
     {
-        virtual ~TransformFilterIndependentKalmanRpy();
+        virtual ~FilterIndependentKalmanRpy();
 
         struct Params
         {

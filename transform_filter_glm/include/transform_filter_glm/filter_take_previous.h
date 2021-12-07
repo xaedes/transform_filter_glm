@@ -1,11 +1,11 @@
 #pragma once
 
 #include <vector>
-#include "transform_filter_glm/abstract_transform_filter.h"
+#include "transform_filter_glm/filter.h"
 
 namespace transform_filter_glm {
 
-    struct TransformFilterTakePrevious : public AbstractTransformFilter
+    struct FilterTakePrevious : public Filter
     {
         struct Params
         {};
@@ -13,7 +13,7 @@ namespace transform_filter_glm {
         Params params;
         virtual void parameterUpdate();
 
-        virtual ~TransformFilterTakePrevious();
+        virtual ~FilterTakePrevious();
 
     protected:
         virtual void filter_implementation() override;

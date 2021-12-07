@@ -2,23 +2,28 @@
 
 #include <vector>
 #include "kalman_glm/pose_rpy.h"
-#include "transform_filter_glm/abstract_simple_transform_forward_backward_smoother.h"
+#include "transform_filter_glm/smoother_sfb.h"
 
 namespace transform_filter_glm {
 
+    /**
+     * @brief      PoseRpy smoother, simple forward backward
+     *
+     * @tparam     TransformFilterType  { description }
+     */
     template<
         class TransformFilterType
     >
-        struct GenericSimpleTransformForwardBackwardSmootherRpy : public AbstractSimpleTransformForwardBackwardSmoother<kalman_glm::PoseRpy, TransformFilterType>
+    struct SmootherSfbRpy : public SmootherSfb<kalman_glm::PoseRpy, TransformFilterType>
     {
-        using AbstractSimpleTransformForwardBackwardSmoother::AbstractSimpleTransformForwardBackwardSmoother;
+        using SmootherSfb::SmootherSfb;
 
         using Params = typename transform_filter_type::Params;
 
         Params params;
         virtual void parameterUpdate() {};
 
-        virtual ~GenericSimpleTransformForwardBackwardSmootherRpy() {}
+        virtual ~SmootherSfbRpy() {}
 
         virtual kalman_glm::PoseRpy to_smoothing_value(StampedTransform tf) override
         {

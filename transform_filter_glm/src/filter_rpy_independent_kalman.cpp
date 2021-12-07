@@ -1,15 +1,15 @@
-#include "transform_filter_glm/transform_filter_independent_kalman_rpy.h"
+#include "transform_filter_glm/filter_independent_kalman_rpy.h"
 
 namespace transform_filter_glm {
     
-    TransformFilterIndependentKalmanRpy::~TransformFilterIndependentKalmanRpy()
+    FilterIndependentKalmanRpy::~FilterIndependentKalmanRpy()
     {}
 
-    void TransformFilterIndependentKalmanRpy::parameterUpdate()
+    void FilterIndependentKalmanRpy::parameterUpdate()
     {
-        AbstractTransformFilterObservePredict::params.reversed = params.reversed;
-        AbstractTransformFilterObservePredict::params.time_lag = params.time_lag;
-        AbstractTransformFilterObservePredict::parameterUpdate();
+        FilterObservePredict::params.reversed = params.reversed;
+        FilterObservePredict::params.time_lag = params.time_lag;
+        FilterObservePredict::parameterUpdate();
 
         m_kalman.set_enable_transpose(params.enable_transpose);
         m_kalman.set_transformation(params.transformation);
@@ -61,13 +61,13 @@ namespace transform_filter_glm {
         //*/
     }
 
-    void TransformFilterIndependentKalmanRpy::reset_implementation()
+    void FilterIndependentKalmanRpy::reset_implementation()
     {
         m_kalman.reset();
         parameterUpdate();
     }
     
-    StampedTransform TransformFilterIndependentKalmanRpy::observation_implementation(uint32_t observation_idx)
+    StampedTransform FilterIndependentKalmanRpy::observation_implementation(uint32_t observation_idx)
     {
         auto timestamp = m_observations[observation_idx].timestamp;
 
@@ -76,7 +76,7 @@ namespace transform_filter_glm {
         // return {timestamp};
         return {timestamp, m_kalman.pose_as_mat4()};
     }
-    StampedTransform TransformFilterIndependentKalmanRpy::prediction_implementation(uint32_t timestamp_idx)
+    StampedTransform FilterIndependentKalmanRpy::prediction_implementation(uint32_t timestamp_idx)
     {
         auto timestamp = m_timestamps[timestamp_idx] ;
 
