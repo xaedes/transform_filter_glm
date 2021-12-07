@@ -13,7 +13,7 @@ add_library(
     src/abstract_transform_filter_observe_predict.cpp
     src/transform_filter_take_previous.cpp
     src/transform_filter_independent_kalman_rpy.cpp
-    src/transform_forward_backward_smoother_independent_kalman_rpy.cpp
+    src/simple_transform_forward_backward_smoother_independent_kalman_rpy.cpp
 )
 
 target_include_directories(

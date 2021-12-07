@@ -2,14 +2,14 @@
 
 #include <vector>
 #include "kalman_glm/independent_kalman_xyz_rpy.h"
-#include "transform_filter_glm/generic_transform_forward_backward_smoother_rpy.h"
+#include "transform_filter_glm/generic_simple_transform_forward_backward_smoother_rpy.h"
 #include "transform_filter_glm/transform_filter_independent_kalman_rpy.h"
 
 namespace transform_filter_glm {
 
-    struct TransformForwardBackwardSmootherIndependentKalmanRpy : public GenericTransformForwardBackwardSmootherRpy<TransformFilterIndependentKalmanRpy>
+    struct SimpleTransformForwardBackwardSmootherIndependentKalmanRpy : public GenericSimpleTransformForwardBackwardSmootherRpy<TransformFilterIndependentKalmanRpy>
     {
-        virtual ~TransformForwardBackwardSmootherIndependentKalmanRpy();
+        virtual ~SimpleTransformForwardBackwardSmootherIndependentKalmanRpy();
 
         struct Params
         {

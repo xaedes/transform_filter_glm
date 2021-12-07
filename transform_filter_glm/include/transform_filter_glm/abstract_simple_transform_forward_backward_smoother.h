@@ -9,7 +9,7 @@ namespace transform_filter_glm {
         class SmoothingValueType,
         class TransformFilterType
     >
-    struct AbstractTransformForwardBackwardSmoother : public AbstractTransformFilter
+    struct AbstractSimpleTransformForwardBackwardSmoother : public AbstractTransformFilter
     {
         using transform_filter_type = TransformFilterType;
         using smoothing_value_type = SmoothingValueType;
@@ -20,7 +20,7 @@ namespace transform_filter_glm {
         virtual void parameterUpdate();
         
 
-        virtual ~AbstractTransformForwardBackwardSmoother();
+        virtual ~AbstractSimpleTransformForwardBackwardSmoother();
 
         std::vector<StampedTransform> m_reversed_observations;
         std::vector<double> m_reversed_timestamps;
@@ -57,4 +57,4 @@ namespace transform_filter_glm {
 
 } // namespace transform_filter_glm
 
-#include "transform_filter_glm/abstract_transform_forward_backward_smoother.impl.h"
+#include "transform_filter_glm/abstract_simple_transform_forward_backward_smoother.impl.h"
